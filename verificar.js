@@ -6,23 +6,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const mensaje = verificarLogin(user,password,check);
         const div = document.getElementById('respuesta');
         div.innerHTML = `<br>${mensaje}</br>`;
-        mensaje == "Usuario valido <br> Contraseña valida"? div.style.color = "green": div.style.color = "red";
-    }
+        mensaje == "Valid user <br> Valid password"? div.style.color = "green": div.style.color = "red";
+    };
     document.querySelector('.btn-primary').addEventListener('click', mostrarMensaje);
     const verificarLogin = (user,password,check) => {
-        if (user.trim() == 0) return "Usuario Invalido";
-        if (password.trim() == 0) return "Contraseña Invalida";
-        if(user.indexOf(" ") >= 1 || password.indexOf(" ") >= 1 ) return "Caracteres invalidos"
-        if (!validarEmail(user)) return "El usuario debe ser un correo electrónico válido";
-        if (!check) return "Tienes que aceptar los terminos y condiciones"
-        if (user.length < 8) return "El usario debe tener minimo 8 caracteres";
-        if (password.length < 10) return "La contraseña debe tener minimo 10 caracteres";
-        if(user.length > 50) return "El usuario es muy largo, maximo 22 caracteres";
-        if(password.length > 50) return "La contraseña es muy larga, maximo 50 caracteres";
-        return "Usuario valido <br> Contraseña valida";
+        if (user.trim() == 0) return "Invalid user" ;
+        if (password.trim() == 0) return ;"Invalid password";
+        if(user.indexOf(" ") >= 1 || password.indexOf(" ") >= 1 ) return "Invalid characters";
+        if (!validarEmail(user)) return "User must be a valid email address";
+        if (!check) return "You must accept the terms and conditions" ;
+        if (user.length < 8) return "Username must have a minimum of 8 characters";
+        if (password.length < 10) return "Password must have a minimum of 10 characters";
+        if(user.length > 50) return "Username is too long. Maximum 22 characters";
+        if(password.length > 50) return "Password is too long. Maximum 50 characters";
+        return "Valid user <br> Valid password";
     };
     const validarEmail = (email) => {
         const expresionRegular = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
         return expresionRegular.test(email);
-    }
+    };
 });
