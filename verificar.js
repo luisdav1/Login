@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const verificarLogin = (user,password,check) => {
         if (user.trim() == 0) return "Invalid user" ;
         if (password.trim() == 0) return ;"Invalid password";
-        if(user.indexOf(" ") >= 1 || password.indexOf(" ") >= 1 ) return "Invalid characters";
+        if(user.indexOf(" ") !== -1 || password.indexOf(" ") !== -1 ) return "Invalid characters";
         if (!validarEmail(user)) return "User must be a valid email address";
         if (!check) return "You must accept the terms and conditions" ;
         if (user.length < 8) return "Username must have a minimum of 8 characters";
